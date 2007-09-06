@@ -5,7 +5,7 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.3.14
+Version:        2.3.19
 Release:        %mkrel 1
 License:	GPL
 Group:		Networking/Mail
@@ -83,7 +83,7 @@ Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=GNOME;GTK;X-MandrivaLinux-Internet-Mail;
+Categories=GNOME;GTK;Network;Email;X-MandrivaLinux-Internet-Mail;
 EOF
 
 # Icons
