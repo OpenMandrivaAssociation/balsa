@@ -33,6 +33,7 @@ BuildRequires:  libltdl-devel
 BuildRequires:	libgmime-devel >= 2.1.7
 BuildRequires:	krb-devel
 BuildRequires:	libnotify-devel
+BuildRequires:	gtkspell-devel
 
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
