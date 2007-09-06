@@ -15,7 +15,6 @@ Source0:	http://balsa.gnome.org/%{name}-%{version}.tar.bz2
 URL:		http://www.balsa.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
-BuildRequires:	autoconf2.5
 BuildRequires:  aspell-devel >= 0.50
 BuildRequires:	libesmtp-devel
 BuildRequires:  libgnomeprintui-devel >= 2.1.7
@@ -33,7 +32,7 @@ BuildRequires:	intltool
 BuildRequires:  libltdl-devel
 BuildRequires:	libgmime-devel >= 2.1.7
 BuildRequires:	krb-devel
-BuildRequires:  automake1.9
+BuildRequires:	libnotify-devel
 
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
@@ -65,7 +64,8 @@ mailboxes, POP3 and IMAP.
 	--with-gpgme \
 %endif
 	--with-ssl \
-	--with-ldap=yes
+	--with-ldap=yes \
+	--with-gtkspell
 
 make
 
