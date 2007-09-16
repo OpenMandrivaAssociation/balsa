@@ -6,7 +6,7 @@
 Summary:	%summary
 Name:		balsa
 Version:        2.3.19
-Release:        %mkrel 1
+Release:        %mkrel 2
 License:	GPL
 Group:		Networking/Mail
 
@@ -73,19 +73,6 @@ make
 %install
 rm -rf %{buildroot}
 %makeinstall_std GTK_UPDATE_ICON_CACHE="/usr/bin/gtk-update-icon-cache --ignore-theme-index"
-
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
-[Desktop Entry]
-Name=%{title}
-Comment=%{summary}
-Exec=%{_bindir}/%{name} 
-Icon=%{name}
-Terminal=false
-Type=Application
-StartupNotify=true
-Categories=GNOME;GTK;Network;Email;X-MandrivaLinux-Internet-Mail;
-EOF
 
 # Icons
 mkdir -p %{buildroot}%{_iconsdir} %{buildroot}%{_miconsdir}
