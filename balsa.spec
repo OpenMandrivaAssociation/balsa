@@ -5,8 +5,8 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.3.19
-Release:        %mkrel 2
+Version:        2.3.20
+Release:        %mkrel 1
 License:	GPL
 Group:		Networking/Mail
 
@@ -50,7 +50,7 @@ Balsa is an e-mail reader.
 
 This client is part of the GNOME desktop environment. It supports local
 mailboxes, POP3 and IMAP.
- 
+
 *** Build options: ***
 --with gpgme              Build with gpgme/GnuPG support
 
