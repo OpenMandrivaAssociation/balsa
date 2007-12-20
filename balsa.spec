@@ -13,6 +13,7 @@ Group:		Networking/Mail
 Source0:	http://balsa.gnome.org/%{name}-%{version}.tar.bz2
 
 URL:		http://www.balsa.net/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:  aspell-devel >= 0.50
 BuildRequires:	libesmtp-devel
