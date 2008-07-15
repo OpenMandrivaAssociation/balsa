@@ -5,12 +5,14 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.3.20
+Version:        2.3.25
 Release:        %mkrel 1
 License:	GPL
 Group:		Networking/Mail
 
 Source0:	http://balsa.gnome.org/%{name}-%{version}.tar.bz2
+
+Patch0:        01-remove_temporary_gtk_deprecated_in_Makefile.patch
 
 URL:		http://www.balsa.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -20,7 +22,7 @@ BuildRequires:	libesmtp-devel
 BuildRequires:  libgnomeprintui-devel >= 2.1.7
 BuildRequires:  libgnomeui2-devel
 # in balsa, gtkhtml 3.x is preferred over 2.x
-BuildRequires:	libgtkhtml-3.8-devel
+BuildRequires:	gtkhtml-3.14-devel
 #BuildRequires:	gtkhtml2-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	pcre-devel
@@ -56,6 +58,8 @@ mailboxes, POP3 and IMAP.
 
 %prep
 %setup -q
+
+%patch0 -p0
 
 %build
 %configure2_5x	\
