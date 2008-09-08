@@ -5,7 +5,7 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.3.25
+Version:        2.3.26
 Release:        %mkrel 1
 License:	GPL
 Group:		Networking/Mail
