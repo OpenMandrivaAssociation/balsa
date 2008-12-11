@@ -28,7 +28,7 @@ BuildRequires:	libltdl-devel
 BuildRequires:	pcre-devel
 BuildRequires:  scrollkeeper
 BuildRequires:	sendmail-command
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	libldap-devel
 BuildRequires:	intltool
 BuildRequires:  libltdl-devel
