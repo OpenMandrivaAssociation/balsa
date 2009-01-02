@@ -5,7 +5,7 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.3.26
+Version:        2.3.27
 Release:        %mkrel 1
 License:	GPL
 Group:		Networking/Mail
@@ -58,8 +58,6 @@ mailboxes, POP3 and IMAP.
 
 %prep
 %setup -q
-
-%patch0 -p0
 
 %build
 %configure2_5x	\
