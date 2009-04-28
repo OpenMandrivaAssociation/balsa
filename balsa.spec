@@ -5,16 +5,17 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.3.27
+Version:        2.3.28
 Release:        %mkrel 1
-License:	GPL
+License:	GPLv2+
 Group:		Networking/Mail
 
 Source0:	http://balsa.gnome.org/%{name}-%{version}.tar.bz2
 
-Patch0:        01-remove_temporary_gtk_deprecated_in_Makefile.patch
+Patch1:	       balsa-gmime-537507.patch
+Patch2:	       balsa-2.3.28-gmime.patch
 
-URL:		http://www.balsa.net/
+URL:		http://www.balsa.gnome.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:  aspell-devel >= 0.50
@@ -32,7 +33,7 @@ BuildRequires:	imagemagick
 BuildRequires:	libldap-devel
 BuildRequires:	intltool
 BuildRequires:  libltdl-devel
-BuildRequires:	libgmime-devel >= 2.1.7
+BuildRequires:	libgmime-devel >= 2.4.0
 BuildRequires:	krb-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	gtkspell-devel
@@ -58,6 +59,9 @@ mailboxes, POP3 and IMAP.
 
 %prep
 %setup -q
+%patch1 -p1
+%patch2 -p1
+autoreconf -fi
 
 %build
 %configure2_5x	\
