@@ -5,17 +5,14 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.3.28
+Version:        2.4.0
 Release:        %mkrel 1
 License:	GPLv2+
 Group:		Networking/Mail
 
-Source0:	http://balsa.gnome.org/%{name}-%{version}.tar.bz2
+Source0:	http://pawsa.fedorapeople.org/balsa/%{name}-%{version}.tar.bz2
 
-Patch1:	       balsa-gmime-537507.patch
-Patch2:	       balsa-2.3.28-gmime.patch
-
-URL:		http://www.balsa.gnome.org/
+URL:		http://pawsa.fedorapeople.org/balsa
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:  aspell-devel >= 0.50
@@ -37,6 +34,7 @@ BuildRequires:	libgmime-devel >= 2.4.0
 BuildRequires:	krb-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	gtkspell-devel
+BuildRequires:	libunique-devel
 
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
@@ -59,9 +57,7 @@ mailboxes, POP3 and IMAP.
 
 %prep
 %setup -q
-%patch1 -p1
-%patch2 -p1
-autoreconf -fi
+#autoreconf -fi
 
 %build
 %configure2_5x	\
