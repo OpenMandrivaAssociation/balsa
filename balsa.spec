@@ -35,7 +35,7 @@ BuildRequires:	libgmime-devel >= 2.4.0
 BuildRequires:	krb-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	gtkspell-devel
-BuildRequires:	libunique-devel
+BuildRequires:	unique-devel
 
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
