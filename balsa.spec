@@ -5,8 +5,8 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.4.0
-Release:        %mkrel 3
+Version:        2.4.1
+Release:        %mkrel 1
 License:	GPLv2+
 Group:		Networking/Mail
 
@@ -19,6 +19,7 @@ BuildRequires:  aspell-devel >= 0.50
 BuildRequires:	libesmtp-devel
 BuildRequires:  libgnomeprintui-devel >= 2.1.7
 BuildRequires:  libgnomeui2-devel
+BuildRequires:	gnome-doc-utils
 # in balsa, gtkhtml 3.x is preferred over 2.x
 BuildRequires:	gtkhtml-3.14-devel
 #BuildRequires:	gtkhtml2-devel
@@ -111,7 +112,6 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %{_datadir}/idl/*.idl
 %{_datadir}/omf/*
 %{_datadir}/sounds/*
-%{_datadir}/icons/*
 %{_libdir}/bonobo/servers/*.server
 %{_mandir}/*/*
 %ghost %{_datadir}/gnome/help/%{name}/*/%{name}.html
@@ -119,5 +119,5 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-
+%{_iconsdir}/hicolor/48x48/mimetypes/*.png
 
