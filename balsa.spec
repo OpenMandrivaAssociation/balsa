@@ -21,8 +21,9 @@ BuildRequires:  libgnomeprintui-devel >= 2.1.7
 BuildRequires:  libgnomeui2-devel
 BuildRequires:	gnome-doc-utils
 # in balsa, gtkhtml 3.x is preferred over 2.x
-BuildRequires:	gtkhtml-3.14-devel
+#BuildRequires:	gtkhtml-3.14-devel
 #BuildRequires:	gtkhtml2-devel
+BuildRequires:  libwebkitgtk-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	pcre-devel
 BuildRequires:  scrollkeeper
@@ -36,6 +37,8 @@ BuildRequires:	krb-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	unique-devel
+BuildRequires:	libnm-glib-devel
+BuildRequires:	libcanberra-devel
 
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
@@ -62,14 +65,16 @@ mailboxes, POP3 and IMAP.
 
 %build
 %configure2_5x	\
-	--with-gtkhtml \
+	--with-webkit \
+	--with-unique \
 	--with-gss=yes \
 %if %enable_gpgme
 	--with-gpgme \
 %endif
 	--with-ssl \
 	--with-ldap=yes \
-	--with-gtkspell
+	--with-gtkspell \
+	--with-canberra
 
 make
 
@@ -109,10 +114,8 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %{_datadir}/%{name}
 %{_datadir}/pixmaps/*
 %{_datadir}/applications/*.desktop
-%{_datadir}/idl/*.idl
 %{_datadir}/omf/*
 %{_datadir}/sounds/*
-%{_libdir}/bonobo/servers/*.server
 %{_mandir}/*/*
 %ghost %{_datadir}/gnome/help/%{name}/*/%{name}.html
 
