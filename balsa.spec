@@ -96,6 +96,7 @@ done
 %clean
 rm -fr %{buildroot}
 
+%if %mdkversion > 200900
 %post
 %update_scrollkeeper
 touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
@@ -104,6 +105,8 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %postun
 %{clean_scrollkeeper}
 %{clean_desktop_database}
+
+%endif
 
 %files -f %{name}.lang
 %defattr(-, root, root)
