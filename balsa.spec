@@ -5,8 +5,8 @@
 
 Summary:	%summary
 Name:		balsa
-Version:        2.4.2
-Release:        %mkrel 1
+Version:	2.4.6
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Networking/Mail
 
@@ -15,23 +15,23 @@ Source0:	http://pawsa.fedorapeople.org/balsa/%{name}-%{version}.tar.bz2
 URL:		http://pawsa.fedorapeople.org/balsa
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
-BuildRequires:  aspell-devel >= 0.50
+BuildRequires:	aspell-devel >= 0.50
 BuildRequires:	libesmtp-devel
-BuildRequires:  libgnomeprintui-devel >= 2.1.7
-BuildRequires:  libgnomeui2-devel
+BuildRequires:	libgnomeprintui-devel >= 2.1.7
+BuildRequires:	libgnomeui2-devel
 BuildRequires:	gnome-doc-utils
 # in balsa, gtkhtml 3.x is preferred over 2.x
 #BuildRequires:	gtkhtml-3.14-devel
 #BuildRequires:	gtkhtml2-devel
-BuildRequires:  libwebkitgtk-devel
+BuildRequires:	libwebkitgtk-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	pcre-devel
-BuildRequires:  scrollkeeper
+BuildRequires:	scrollkeeper
 BuildRequires:	sendmail-command
 BuildRequires:	imagemagick
 BuildRequires:	libldap-devel
 BuildRequires:	intltool
-BuildRequires:  libltdl-devel
+BuildRequires:	libltdl-devel
 BuildRequires:	libgmime-devel >= 2.4.0
 BuildRequires:	krb-devel
 BuildRequires:	libnotify-devel
@@ -44,11 +44,11 @@ BuildRequires:	libcanberra-devel
 BuildRequires:	gpgme-devel >= 0.4.2
 %endif
 
-Requires(post):         scrollkeeper >= 0.3
-Requires(postun):         scrollkeeper >= 0.3
+Requires(post):		scrollkeeper >= 0.3
+Requires(postun):	scrollkeeper >= 0.3
 
-Requires(post): desktop-file-utils
-Requires(postun): desktop-file-utils
+Requires(post):		desktop-file-utils
+Requires(postun):	desktop-file-utils
 
 %description
 Balsa is an e-mail reader.
@@ -57,7 +57,7 @@ This client is part of the GNOME desktop environment. It supports local
 mailboxes, POP3 and IMAP.
 
 *** Build options: ***
---with gpgme              Build with gpgme/GnuPG support
+--with gpgme		Build with gpgme/GnuPG support
 
 %prep
 %setup -q
@@ -65,7 +65,6 @@ mailboxes, POP3 and IMAP.
 
 %build
 %configure2_5x	\
-	--with-webkit \
 	--with-unique \
 	--with-gss=yes \
 %if %enable_gpgme
@@ -84,7 +83,7 @@ rm -rf %{buildroot}
 
 # Icons
 mkdir -p %{buildroot}%{_iconsdir} %{buildroot}%{_miconsdir}
-install -m 644 -D       gnome-balsa2.png %{buildroot}/%{_liconsdir}/%{name}.png
+install -m 644 -D	gnome-balsa2.png %{buildroot}/%{_liconsdir}/%{name}.png
 convert -geometry 32x32 gnome-balsa2.png %{buildroot}/%{_iconsdir}/%{name}.png
 convert -geometry 16x16 gnome-balsa2.png %{buildroot}/%{_miconsdir}/%{name}.png
 
