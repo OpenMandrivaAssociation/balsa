@@ -1,7 +1,7 @@
 %define enable_gpgme 0
 %{?_with_gpgme: %global enable_gpgme 1}
 %define title Balsa
-%define summary Balsa Mail Client
+%define summary Graphical Mail Client
 
 Summary:	%summary
 Name:		balsa
@@ -96,16 +96,16 @@ done
 %clean
 rm -fr %{buildroot}
 
-%if %mdkversion > 200900
 %post
 %update_scrollkeeper
 touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %{update_desktop_database}
 
+%if %mdkversion>200900
+
 %postun
 %{clean_scrollkeeper}
 %{clean_desktop_database}
-
 %endif
 
 %files -f %{name}.lang
