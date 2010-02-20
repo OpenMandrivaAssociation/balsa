@@ -5,7 +5,7 @@
 
 Summary:	%summary
 Name:		balsa
-Version:	2.4.6
+Version:	2.4.7
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Networking/Mail
@@ -39,6 +39,7 @@ BuildRequires:	gtkspell-devel
 BuildRequires:	unique-devel
 BuildRequires:	libnm-glib-devel
 BuildRequires:	libcanberra-devel
+BuildRequires:	gtksourceview-devel
 
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
@@ -73,7 +74,9 @@ mailboxes, POP3 and IMAP.
 	--with-ssl \
 	--with-ldap=yes \
 	--with-gtkspell \
-	--with-canberra
+	--with-canberra \
+	--with-html-widget=webkit \
+	--with-gtksourceview
 
 make
 
