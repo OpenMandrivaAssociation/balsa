@@ -38,7 +38,7 @@ BuildRequires:	libnotify-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	unique-devel
 BuildRequires:	libnm-glib-devel
-BuildRequires:	libcanberra-devel
+BuildRequires:	libcanberra-gtk-devel
 BuildRequires:	gtksourceview-devel
 
 %if %enable_gpgme
