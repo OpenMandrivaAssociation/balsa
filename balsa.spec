@@ -23,7 +23,7 @@ BuildRequires:	gnome-doc-utils
 # in balsa, gtkhtml 3.x is preferred over 2.x
 #BuildRequires:	gtkhtml-3.14-devel
 #BuildRequires:	gtkhtml2-devel
-BuildRequires:	libwebkitgtk-devel
+BuildRequires:	webkitgtk-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	pcre-devel
 BuildRequires:	scrollkeeper
