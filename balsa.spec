@@ -6,12 +6,12 @@
 Summary:	%summary
 Name:		balsa
 Version:	2.4.7
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPLv2+
 Group:		Networking/Mail
 
 Source0:	http://pawsa.fedorapeople.org/balsa/%{name}-%{version}.tar.bz2
-
+Patch0:		balsa-2.4.7-libnotify0.7.patch
 URL:		http://pawsa.fedorapeople.org/balsa
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -45,12 +45,6 @@ BuildRequires:	gtksourceview-devel
 BuildRequires:	gpgme-devel >= 0.4.2
 %endif
 
-Requires(post):		scrollkeeper >= 0.3
-Requires(postun):	scrollkeeper >= 0.3
-
-Requires(post):		desktop-file-utils
-Requires(postun):	desktop-file-utils
-
 %description
 Balsa is an e-mail reader.
 
@@ -62,7 +56,7 @@ mailboxes, POP3 and IMAP.
 
 %prep
 %setup -q
-#autoreconf -fi
+%patch0 -p0
 
 %build
 %configure2_5x	\
@@ -76,7 +70,7 @@ mailboxes, POP3 and IMAP.
 	--with-gtkspell \
 	--with-canberra \
 	--with-html-widget=webkit \
-	--with-gtksourceview
+	--with-gtksourceview --disable-scrollkeeper
 
 make
 
