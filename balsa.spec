@@ -29,7 +29,7 @@ BuildRequires:	pkgconfig(libgnomeprintui-2.2)
 BuildRequires:	pkgconfig(libgnomeui-2.0)
 BuildRequires:	pkgconfig(libnm-glib)
 BuildRequires:	pkgconfig(libnotify)
-BuildRequires:	pkgconfig(libpcre
+BuildRequires:	pkgconfig(libpcre)
 BuildRequires:	pkgconfig(unique-1.0)
 BuildRequires:	pkgconfig(webkit-1.0)
 %if %enable_gpgme
