@@ -9,31 +9,29 @@ Group:		Networking/Mail
 URL:		http://pawsa.fedorapeople.org/balsa
 Source0:	http://pawsa.fedorapeople.org/balsa/%{name}-%{version}.tar.bz2
 
-BuildRequires:	aspell-devel >= 0.50
-BuildRequires:	libesmtp-devel
-BuildRequires:	libgnomeprintui-devel >= 2.1.7
-BuildRequires:	libgnomeui2-devel
 BuildRequires:	gnome-doc-utils
+BuildRequires:	imagemagick
+BuildRequires:	intltool
+BuildRequires:	sendmail-command
+BuildRequires:	aspell-devel >= 0.50
+BuildRequires:	krb5-devel
+BuildRequires:	libldap-devel
+BuildRequires:	libesmtp-devel
+BuildRequires:	libltdl-devel
 # in balsa, gtkhtml 3.x is preferred over 2.x
 #BuildRequires:	gtkhtml-3.14-devel
 #BuildRequires:	gtkhtml2-devel
-BuildRequires:	webkitgtk-devel
-BuildRequires:	libltdl-devel
-BuildRequires:	pcre-devel
-BuildRequires:	sendmail-command
-BuildRequires:	imagemagick
-BuildRequires:	libldap-devel
-BuildRequires:	intltool
-BuildRequires:	libltdl-devel
-BuildRequires:	libgmime-devel >= 2.4.0
-BuildRequires:	krb5-devel
-BuildRequires:	libnotify-devel
-BuildRequires:	gtkspell-devel
-BuildRequires:	unique-devel
-BuildRequires:	libnm-glib-devel
-BuildRequires:	libcanberra-gtk-devel
-BuildRequires:	gtksourceview-devel
-
+BuildRequires:	pkgconfig(gmime-2.6)
+BuildRequires:	pkgconfig(gtksourceview-3.0)
+BuildRequires:	pkgconfig(gtkspell-2.0)
+BuildRequires:	pkgconfig(libcanberra-gtk)
+BuildRequires:	pkgconfig(libgnomeprintui-2.2)
+BuildRequires:	pkgconfig(libgnomeui-2.0)
+BuildRequires:	pkgconfig(libnm-glib)
+BuildRequires:	pkgconfig(libnotify)
+BuildRequires:	pkgconfig(libpcre
+BuildRequires:	pkgconfig(unique-1.0)
+BuildRequires:	pkgconfig(webkit-1.0)
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
 %endif
