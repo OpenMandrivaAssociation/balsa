@@ -1,3 +1,5 @@
+#otherwise the ghost html files are really present
+%define _files_listed_twice_terminate_build	0
 %define enable_gpgme 0
 
 Summary:	Graphical Mail Client
@@ -22,7 +24,8 @@ BuildRequires:	libltdl-devel
 #BuildRequires:	gtkhtml-3.14-devel
 #BuildRequires:	gtkhtml2-devel
 BuildRequires:	pkgconfig(gmime-2.6)
-BuildRequires:	pkgconfig(gtksourceview-3.0)
+BuildRequires:	pkgconfig(gnome-icon-theme)
+BuildRequires:	pkgconfig(gtksourceview-1.0)
 BuildRequires:	pkgconfig(gtkspell-2.0)
 BuildRequires:	pkgconfig(libcanberra-gtk)
 BuildRequires:	pkgconfig(libgnomeprintui-2.2)
@@ -88,10 +91,10 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %doc README COPYING ChangeLog NEWS TODO
 %config(noreplace) %{_sysconfdir}/sound/events/*
 %{_bindir}/*
-%{_datadir}/%{name}
-%{_datadir}/pixmaps/*
 %{_datadir}/applications/*.desktop
-%{_datadir}/omf/*
+%{_datadir}/%{name}
+%{_datadir}/idl/Balsa.idl
+%{_datadir}/pixmaps/*
 %{_datadir}/sounds/*
 %{_mandir}/man1/*
 %ghost %{_datadir}/gnome/help/%{name}/*/%{name}.html
