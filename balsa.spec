@@ -1,19 +1,13 @@
 %define enable_gpgme 0
-%{?_with_gpgme: %global enable_gpgme 1}
-%define title Balsa
-%define summary Graphical Mail Client
 
-Summary:	%summary
+Summary:	Graphical Mail Client
 Name:		balsa
-Version:	2.4.7
-Release:	%mkrel 6
+Version:	2.4.11
+Release:	1
 License:	GPLv2+
 Group:		Networking/Mail
-
-Source0:	http://pawsa.fedorapeople.org/balsa/%{name}-%{version}.tar.bz2
-Patch0:		balsa-2.4.7-libnotify0.7.patch
 URL:		http://pawsa.fedorapeople.org/balsa
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Source0:	http://pawsa.fedorapeople.org/balsa/%{name}-%{version}.tar.bz2
 
 BuildRequires:	aspell-devel >= 0.50
 BuildRequires:	libesmtp-devel
@@ -26,14 +20,13 @@ BuildRequires:	gnome-doc-utils
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	pcre-devel
-BuildRequires:	scrollkeeper
 BuildRequires:	sendmail-command
 BuildRequires:	imagemagick
 BuildRequires:	libldap-devel
 BuildRequires:	intltool
 BuildRequires:	libltdl-devel
 BuildRequires:	libgmime-devel >= 2.4.0
-BuildRequires:	krb-devel
+BuildRequires:	krb5-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	unique-devel
@@ -56,7 +49,6 @@ mailboxes, POP3 and IMAP.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %configure2_5x	\
@@ -70,7 +62,8 @@ mailboxes, POP3 and IMAP.
 	--with-gtkspell \
 	--with-canberra \
 	--with-html-widget=webkit \
-	--with-gtksourceview --disable-scrollkeeper
+	--with-gtksourceview \
+	--disable-scrollkeeper
 
 make
 
@@ -90,23 +83,10 @@ for i in %{buildroot}%{_datadir}/gnome/help/%{name}/*; do
   touch $i/%{name}.html
 done
 
-%clean
-rm -fr %{buildroot}
-
 %post
-%update_scrollkeeper
 touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
-%{update_desktop_database}
-
-%if %mdkversion>200900
-
-%postun
-%{clean_scrollkeeper}
-%{clean_desktop_database}
-%endif
 
 %files -f %{name}.lang
-%defattr(-, root, root)
 %doc README COPYING ChangeLog NEWS TODO
 %config(noreplace) %{_sysconfdir}/sound/events/*
 %{_bindir}/*
@@ -115,7 +95,7 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %{_datadir}/applications/*.desktop
 %{_datadir}/omf/*
 %{_datadir}/sounds/*
-%{_mandir}/*/*
+%{_mandir}/man1/*
 %ghost %{_datadir}/gnome/help/%{name}/*/%{name}.html
 
 %{_iconsdir}/%{name}.png
