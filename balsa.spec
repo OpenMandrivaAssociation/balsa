@@ -4,7 +4,7 @@
 
 Summary:	Graphical Mail Client
 Name:		balsa
-Version:	2.4.13
+Version:	2.5.0
 Release:	1
 License:	GPLv2+
 Group:		Networking/Mail
@@ -19,19 +19,14 @@ BuildRequires:	intltool
 BuildRequires:	sendmail-command
 BuildRequires:	aspell-devel >= 0.50
 BuildRequires:	krb5-devel
-BuildRequires:	libldap-devel
+BuildRequires:	openldap-devel
 BuildRequires:	libesmtp-devel
 BuildRequires:	libltdl-devel
 # in balsa, gtkhtml 3.x is preferred over 2.x
-BuildRequires:	pkgconfig(libgtkhtml-3.14)
-#BuildRequires:	gtkhtml2-devel
+BuildRequires:	pkgconfig(libgtkhtml-4.0)
 BuildRequires:	pkgconfig(gmime-2.6)
-BuildRequires:	pkgconfig(gnome-icon-theme)
-BuildRequires:	pkgconfig(gtksourceview-1.0)
+BuildRequires:	pkgconfig(gtksourceview-3.0)
 BuildRequires:	pkgconfig(gtkspell-2.0)
-BuildRequires:	pkgconfig(libcanberra-gtk)
-BuildRequires:	pkgconfig(libgnomeprintui-2.2)
-BuildRequires:	pkgconfig(libgnomeui-2.0)
 BuildRequires:	pkgconfig(libnm-glib)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libpcre)
