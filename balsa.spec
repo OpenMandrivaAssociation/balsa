@@ -24,6 +24,7 @@ BuildRequires:	libesmtp-devel
 BuildRequires:	libltdl-devel
 # in balsa, gtkhtml 3.x is preferred over 2.x
 BuildRequires:	pkgconfig(libgtkhtml-4.0)
+BuildRequires:	pkgconfig(libcanberra-gtk3)
 BuildRequires:	pkgconfig(gmime-2.6)
 BuildRequires:	pkgconfig(gtksourceview-3.0)
 BuildRequires:	pkgconfig(gtkspell-2.0)
@@ -50,7 +51,6 @@ mailboxes, POP3 and IMAP.
 %setup -q
 
 %build
-autoreconf -f
 %configure2_5x	\
 	--with-unique \
 	--with-gss=yes \
