@@ -34,6 +34,7 @@ BuildRequires:	pkgconfig(libpcre)
 BuildRequires:	pkgconfig(sqlite)
 BuildRequires:	pkgconfig(unique-1.0)
 BuildRequires:	pkgconfig(webkit-1.0)
+BuildRequires:	pkgconfig(webkitgtk-3.0)
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
 %endif
