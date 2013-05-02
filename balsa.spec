@@ -27,7 +27,7 @@ BuildRequires:	pkgconfig(libgtkhtml-4.0)
 BuildRequires:	pkgconfig(libcanberra-gtk3)
 BuildRequires:	pkgconfig(gmime-2.6)
 BuildRequires:	pkgconfig(gtksourceview-3.0)
-BuildRequires:	pkgconfig(gtkspell-2.0)
+BuildRequires:  pkgconfig(gtkspell3-3.0)
 BuildRequires:	pkgconfig(libnm-glib)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libpcre)
@@ -35,6 +35,7 @@ BuildRequires:	pkgconfig(sqlite)
 BuildRequires:	pkgconfig(unique-1.0)
 BuildRequires:	pkgconfig(webkit-1.0)
 BuildRequires:	pkgconfig(webkitgtk-3.0)
+BuildRequires:	pkgconfig(enchant)
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
 %endif
