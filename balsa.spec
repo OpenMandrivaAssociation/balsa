@@ -95,7 +95,6 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}
-%{_datadir}/idl/Balsa.idl
 %{_datadir}/pixmaps/*
 %{_datadir}/sounds/*
 %{_mandir}/man1/*
