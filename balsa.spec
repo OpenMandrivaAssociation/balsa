@@ -22,8 +22,6 @@ BuildRequires:	krb5-devel
 BuildRequires:	openldap-devel
 BuildRequires:	libesmtp-devel
 BuildRequires:	libltdl-devel
-# in balsa, gtkhtml 3.x is preferred over 2.x
-BuildRequires:	pkgconfig(libgtkhtml-4.0)
 BuildRequires:	pkgconfig(libcanberra-gtk3)
 BuildRequires:	pkgconfig(gmime-2.6)
 BuildRequires:	pkgconfig(gtksourceview-3.0)
