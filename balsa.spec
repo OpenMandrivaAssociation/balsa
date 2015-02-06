@@ -5,7 +5,7 @@
 Summary:	Graphical Mail Client
 Name:		balsa
 Version:	2.5.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/Mail
 URL:		http://pawsa.fedorapeople.org/balsa
