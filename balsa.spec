@@ -1,6 +1,6 @@
 #otherwise the ghost html files are really present
 %define _files_listed_twice_terminate_build	0
-%define enable_gpgme 1
+%define config_opts --prefix=%{_prefix} --sysconfdir=%{_sysconfdir} --mandir=%{_mandir} --libdir=%{_libdir} --bindir=%{_bindir} --includedir=%{_includedir} --datadir=%{_datadir} --disable-more-warnings --with-ssl --with-gss --with-gtkspell  --with-unique --with-gmime=2.6 --without-gnome --with-html-widget=webkit --with-gpgme --with-secret
 
 Summary:	Graphical Mail Client
 Name:		balsa
@@ -37,10 +37,13 @@ BuildRequires:	pkgconfig(enchant)
 BuildRequires:	pkgconfig(libnm-glib-vpn)
 BuildRequires:	gcc-c++, gcc, gcc-cpp
 BuildRequires:	pkgconfig(gtk-doc)
+BuildRequires:  gettext
+BuildRequires:  gpgme-devel
+BuildRequires:  libsecret-devel
+BuildRequires:  pkgconfig(rarian)
+BuildRequires:  yelp-tools
+BuildRequires:  pkgconfig(libnotify)
 
-%if %enable_gpgme
-BuildRequires:	gpgme-devel >= 0.4.2
-%endif
 
 %description
 Balsa is an e-mail reader.
@@ -58,23 +61,9 @@ mailboxes, POP3 and IMAP.
 export CC=gcc
 export CXX=g++
 
-%configure2_5x	\
-	--with-unique \
-	--with-gss=yes \
-%if %enable_gpgme
-	--with-gpgme \
-%endif
-	--with-ssl \
-	--with-ldap=yes \
-	--with-gtkspell \
-	--with-canberra \
-	--with-html-widget=webkit \
-	--with-gtksourceview \
-	--with-sqlite \
-	--with-compface \
-	--disable-scrollkeeper
+%configure %{config_opts}
 
-make
+%make
 
 %install
 %makeinstall_std GTK_UPDATE_ICON_CACHE="/usr/bin/gtk-update-icon-cache --ignore-theme-index"
