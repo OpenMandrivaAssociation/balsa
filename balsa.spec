@@ -35,6 +35,7 @@ BuildRequires:	pkgconfig(webkit-1.0)
 BuildRequires:	pkgconfig(webkitgtk-3.0)
 BuildRequires:	pkgconfig(enchant)
 BuildRequires:	pkgconfig(libnm-glib-vpn)
+BuildRequires:	gcc-c++, gcc, gcc-cpp
 
 %if %enable_gpgme
 BuildRequires:	gpgme-devel >= 0.4.2
@@ -53,6 +54,8 @@ mailboxes, POP3 and IMAP.
 %setup -q
 
 %build
+export CC=gcc
+export CXX=g++
 %configure2_5x	\
 	--with-unique \
 	--with-gss=yes \
