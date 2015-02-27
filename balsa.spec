@@ -39,7 +39,7 @@ BuildRequires:	gcc-c++, gcc, gcc-cpp
 BuildRequires:	pkgconfig(gtk-doc)
 BuildRequires:  gettext
 BuildRequires:  gpgme-devel
-BuildRequires:  libsecret-devel
+BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:  pkgconfig(rarian)
 BuildRequires:  yelp-tools
 BuildRequires:  pkgconfig(libnotify)
