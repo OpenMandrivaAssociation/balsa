@@ -76,12 +76,7 @@ convert -geometry 16x16 gnome-balsa2.png %{buildroot}/%{_miconsdir}/%{name}.png
 
 %find_lang %{name} --with-gnome
 
-for i in %{buildroot}%{_datadir}/gnome/help/%{name}/*; do
-  touch $i/%{name}.html
-done
 
-%post
-touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 
 %files -f %{name}.lang
 %doc README COPYING ChangeLog NEWS TODO
@@ -91,9 +86,8 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %{_datadir}/%{name}
 %{_datadir}/pixmaps/*
 %{_datadir}/sounds/*
+%{_datadir}/help/*/balsa/
 %{_mandir}/man1/*
-%ghost %{_datadir}/gnome/help/%{name}/*/%{name}.html
-
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
