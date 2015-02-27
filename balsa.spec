@@ -5,7 +5,7 @@
 Summary:	Graphical Mail Client
 Name:		balsa
 Version:	2.5.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/Mail
 URL:		http://pawsa.fedorapeople.org/balsa
@@ -43,6 +43,7 @@ BuildRequires:  pkgconfig(libsecret-1)
 BuildRequires:  pkgconfig(rarian)
 BuildRequires:  yelp-tools
 BuildRequires:  pkgconfig(libnotify)
+BuildRequires:  desktop-file-utils
 
 
 %description
@@ -73,6 +74,12 @@ mkdir -p %{buildroot}%{_iconsdir} %{buildroot}%{_miconsdir}
 install -m 644 -D	gnome-balsa2.png %{buildroot}/%{_liconsdir}/%{name}.png
 convert -geometry 32x32 gnome-balsa2.png %{buildroot}/%{_iconsdir}/%{name}.png
 convert -geometry 16x16 gnome-balsa2.png %{buildroot}/%{_miconsdir}/%{name}.png
+
+desktop-file-install %{buildroot}%{_datadir}/applications/balsa.desktop \
+        --add-category=Email \
+        --remove-category=Application \
+        --dir=%{buildroot}%{_datadir}/applications \
+
 
 %find_lang %{name} --with-gnome
 
