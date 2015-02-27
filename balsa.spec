@@ -1,10 +1,10 @@
 #otherwise the ghost html files are really present
 %define _files_listed_twice_terminate_build	0
-%define enable_gpgme 1
+%define config_opts --prefix=%{_prefix} --sysconfdir=%{_sysconfdir} --mandir=%{_mandir} --libdir=%{_libdir} --bindir=%{_bindir} --includedir=%{_includedir} --datadir=%{_datadir} --disable-more-warnings --with-ssl --with-gss --with-gtkspell  --with-unique --with-gmime=2.6 --without-gnome --with-html-widget=webkit --with-gpgme --with-secret
 
 Summary:	Graphical Mail Client
 Name:		balsa
-Version:	2.5.0
+Version:	2.5.1
 Release:	2
 License:	GPLv2+
 Group:		Networking/Mail
@@ -37,10 +37,14 @@ BuildRequires:	pkgconfig(enchant)
 BuildRequires:	pkgconfig(libnm-glib-vpn)
 BuildRequires:	gcc-c++, gcc, gcc-cpp
 BuildRequires:	pkgconfig(gtk-doc)
+BuildRequires:  gettext
+BuildRequires:  gpgme-devel
+BuildRequires:  pkgconfig(libsecret-1)
+BuildRequires:  pkgconfig(rarian)
+BuildRequires:  yelp-tools
+BuildRequires:  pkgconfig(libnotify)
+BuildRequires:  desktop-file-utils
 
-%if %enable_gpgme
-BuildRequires:	gpgme-devel >= 0.4.2
-%endif
 
 %description
 Balsa is an e-mail reader.
@@ -58,23 +62,9 @@ mailboxes, POP3 and IMAP.
 export CC=gcc
 export CXX=g++
 
-%configure2_5x	\
-	--with-unique \
-	--with-gss=yes \
-%if %enable_gpgme
-	--with-gpgme \
-%endif
-	--with-ssl \
-	--with-ldap=yes \
-	--with-gtkspell \
-	--with-canberra \
-	--with-html-widget=webkit \
-	--with-gtksourceview \
-	--with-sqlite \
-	--with-compface \
-	--disable-scrollkeeper
+%configure %{config_opts}
 
-make
+%make
 
 %install
 %makeinstall_std GTK_UPDATE_ICON_CACHE="/usr/bin/gtk-update-icon-cache --ignore-theme-index"
@@ -85,14 +75,15 @@ install -m 644 -D	gnome-balsa2.png %{buildroot}/%{_liconsdir}/%{name}.png
 convert -geometry 32x32 gnome-balsa2.png %{buildroot}/%{_iconsdir}/%{name}.png
 convert -geometry 16x16 gnome-balsa2.png %{buildroot}/%{_miconsdir}/%{name}.png
 
+desktop-file-install %{buildroot}%{_datadir}/applications/balsa.desktop \
+        --add-category=Email \
+        --remove-category=Application \
+        --dir=%{buildroot}%{_datadir}/applications \
+
+
 %find_lang %{name} --with-gnome
 
-for i in %{buildroot}%{_datadir}/gnome/help/%{name}/*; do
-  touch $i/%{name}.html
-done
 
-%post
-touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 
 %files -f %{name}.lang
 %doc README COPYING ChangeLog NEWS TODO
@@ -102,9 +93,8 @@ touch %{_datadir}/gnome/help/%{name}/C/%{name}.html
 %{_datadir}/%{name}
 %{_datadir}/pixmaps/*
 %{_datadir}/sounds/*
+%{_datadir}/help/*/balsa/
 %{_mandir}/man1/*
-%ghost %{_datadir}/gnome/help/%{name}/*/%{name}.html
-
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
