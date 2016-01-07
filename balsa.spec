@@ -1,11 +1,11 @@
 #otherwise the ghost html files are really present
 %define _files_listed_twice_terminate_build	0
-%define config_opts --prefix=%{_prefix} --sysconfdir=%{_sysconfdir} --mandir=%{_mandir} --libdir=%{_libdir} --bindir=%{_bindir} --includedir=%{_includedir} --datadir=%{_datadir} --disable-more-warnings --with-ssl --with-gss --with-gtkspell --with-gmime=2.6 --without-gnome --with-html-widget=webkit --with-gpgme --with-libsecret
+%define config_opts --prefix=%{_prefix} --sysconfdir=%{_sysconfdir} --mandir=%{_mandir} --libdir=%{_libdir} --bindir=%{_bindir} --includedir=%{_includedir} --datadir=%{_datadir} --disable-more-warnings --with-ssl --with-gss --with-gtkspell --with-gmime=2.6 --without-gnome --with-html-widget=webkit2 --with-gpgme --with-libsecret
 
 Summary:	Graphical Mail Client
 Name:		balsa
 Version:	2.5.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/Mail
 URL:		http://pawsa.fedorapeople.org/balsa
@@ -31,8 +31,7 @@ BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libpcre)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(unique-1.0)
-BuildRequires:	pkgconfig(webkit-1.0)
-BuildRequires:	pkgconfig(webkitgtk-3.0)
+BuildRequires:	pkgconfig(webkit2gtk-4.0)
 BuildRequires:	pkgconfig(enchant)
 BuildRequires:	pkgconfig(libnm-glib-vpn)
 BuildRequires:	gcc-c++, gcc, gcc-cpp
