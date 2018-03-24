@@ -4,8 +4,8 @@
 
 Summary:	Graphical Mail Client
 Name:		balsa
-Version:	2.5.2
-Release:	2
+Version:	2.5.5
+Release:	1
 License:	GPLv2+
 Group:		Networking/Mail
 URL:		http://pawsa.fedorapeople.org/balsa
@@ -92,12 +92,11 @@ desktop-file-install %{buildroot}%{_datadir}/applications/balsa.desktop \
 %{_datadir}/%{name}
 %{_datadir}/pixmaps/*
 %{_datadir}/sounds/*
-%{_datadir}/appdata/balsa.appdata.xml
+%{_datadir}/metainfo/balsa.appdata.xml
 %{_mandir}/man1/*
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-%{_iconsdir}/hicolor/48x48/mimetypes/*.png
 
 
 

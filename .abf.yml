@@ -1,5 +1,6 @@
 removed_sources:
   balsa-2.5.0.tar.bz2: 0734a00ddb415c0011f709c2745f043c63a1ca23
   balsa-2.5.1.tar.bz2: 07d6f2f042b452d5c48f3fe7255d5ca6bb3a1d1f
-sources:
   balsa-2.5.2.tar.bz2: 50c93466de316ccc82e317a042090443c4ce952f
+sources:
+  balsa-2.5.5.tar.bz2: 547668daaac0dce9671468ac605775ca418973e5
