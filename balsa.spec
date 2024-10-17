@@ -8,7 +8,7 @@ Version:	2.5.5
 Release:	1
 License:	GPLv2+
 Group:		Networking/Mail
-URL:		http://pawsa.fedorapeople.org/balsa
+URL:		https://pawsa.fedorapeople.org/balsa
 Source0:	http://pawsa.fedorapeople.org/balsa/%{name}-%{version}.tar.bz2
 
 BuildRequires:	gnome-doc-utils
