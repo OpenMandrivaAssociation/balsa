@@ -11,6 +11,11 @@ Group:		Networking/Mail
 URL:		https://pawsa.fedorapeople.org/balsa
 Source0:	http://pawsa.fedorapeople.org/balsa/%{name}-%{version}.tar.bz2
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-doc-utils-devel
 BuildRequires:	compface-devel
